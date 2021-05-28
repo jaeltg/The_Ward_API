@@ -5,6 +5,8 @@ import com.codeclan.example.The_Ward.models.illness.Symptom;
 import com.codeclan.example.The_Ward.models.people.Specialist;
 import com.codeclan.example.The_Ward.models.people.Speciality;
 import com.codeclan.example.The_Ward.repositories.IllnessRepository;
+import com.codeclan.example.The_Ward.repositories.PatientRepository;
+import com.codeclan.example.The_Ward.repositories.SpecialistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -18,6 +20,12 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     IllnessRepository illnessRepository;
 
+    @Autowired
+    PatientRepository patientRepository;
+
+    @Autowired
+    SpecialistRepository specialistRepository;
+
     public DataLoader(){
 
     }
@@ -26,21 +34,29 @@ public class DataLoader implements ApplicationRunner {
 
         // SPECIALISTS
 
-        Specialist gastrologist = new Specialist("John",32, "photo url", Speciality.GASTROLOGIST);
+        Specialist gastroenterologist = new Specialist("John",32, "photo url", Speciality.GASTROENTEROLOGIST);
+        specialistRepository.save(gastroenterologist);
         Specialist generalDoctor = new Specialist("Patrick",42, "photo url", Speciality.GENERAL_DOCTOR);
+        specialistRepository.save(generalDoctor);
         Specialist cardiologist = new Specialist("Chandru", 41, "photo URL", Speciality.CARDIOLOGIST);
+        specialistRepository.save(cardiologist);
         Specialist urologistGynecologist = new Specialist("Dougie", 32, "photo URL", Speciality.UROLOGIST_GYNECOLOGIST);
+        specialistRepository.save(urologistGynecologist);
         Specialist neurologist = new Specialist("Suzanne", 52, "photo URL", Speciality.NEUROLOGIST);
+        specialistRepository.save(neurologist);
         Specialist dermatologist = new Specialist("Mary", 33, "photo URL", Speciality.DERMATOLOGIST);
+        specialistRepository.save(dermatologist);
         Specialist psychologist = new Specialist("Wei", 62, "photo URL", Speciality.PSYCHOLOGIST);
+        specialistRepository.save(psychologist);
 
         // ILLNESSES
 
-        Illness gastroenteritis = new Illness("Gastroenteritis", gastrologist);
+        Illness gastroenteritis = new Illness("Gastroenteritis", gastroenterologist);
             gastroenteritis.addSymptom(Symptom.DIARRHEA);
             gastroenteritis.addSymptom(Symptom.VOMIT);
             gastroenteritis.addSymptom(Symptom.NAUSEA);
             gastroenteritis.addSymptom(Symptom.STOMACH_ACHE);
+        illnessRepository.save(gastroenteritis);
 
         Illness covid = new Illness("Covid-19", generalDoctor);
             covid.addSymptom(Symptom.FEVER);
@@ -50,6 +66,7 @@ public class DataLoader implements ApplicationRunner {
             covid.addSymptom(Symptom.SHORTNESS_OF_BREATH);
             covid.addSymptom(Symptom.TIGHTNESS_IN_THE_CHEST);
             covid.addSymptom(Symptom.FATIGUE);
+        illnessRepository.save(covid);
 
         Illness heartAttack = new Illness("Hear Attack", cardiologist);
             heartAttack.addSymptom(Symptom.CHEST_PAIN);
@@ -60,12 +77,14 @@ public class DataLoader implements ApplicationRunner {
             heartAttack.addSymptom(Symptom.NAUSEA);
             heartAttack.addSymptom(Symptom.VOMIT);
             heartAttack.addSymptom(Symptom.ANXIETY);
+        illnessRepository.save(heartAttack);
 
         Illness std = new Illness("STD", urologistGynecologist);
             std.addSymptom(Symptom.GENITAL_PAIN);
             std.addSymptom(Symptom.ITCHING);
             std.addSymptom(Symptom.FEVER);
             std.addSymptom(Symptom.ANXIETY);
+        illnessRepository.save(std);
 
         Illness flu = new Illness("Flu", generalDoctor);
             flu.addSymptom(Symptom.FEVER);
@@ -77,6 +96,7 @@ public class DataLoader implements ApplicationRunner {
             flu.addSymptom(Symptom.MIGRAINE);
             flu.addSymptom(Symptom.DIZZINESS);
             flu.addSymptom(Symptom.FATIGUE);
+        illnessRepository.save(flu);
 
         Illness stroke = new Illness("Stroke", neurologist);
             stroke.addSymptom(Symptom.CONFUSION);
@@ -84,39 +104,45 @@ public class DataLoader implements ApplicationRunner {
             stroke.addSymptom(Symptom.SEIZURES);
             stroke.addSymptom(Symptom.GARBLED_SPEECH);
             stroke.addSymptom(Symptom.DIZZINESS);
+        illnessRepository.save(stroke);
 
-        Illness acidReflux = new Illness("Acid Reflux", gastrologist);
+        Illness acidReflux = new Illness("Acid Reflux", gastroenterologist);
             acidReflux.addSymptom(Symptom.CHEST_PAIN);
             acidReflux.addSymptom(Symptom.BURNING_SENSATION);
             acidReflux.addSymptom(Symptom.STOMACH_ACHE);
             acidReflux.addSymptom(Symptom.SORE_THROAT);
             acidReflux.addSymptom(Symptom.COUGH);
+        illnessRepository.save(acidReflux);
 
         Illness brokenBone = new Illness("Broken Bone", generalDoctor);
             brokenBone.addSymptom(Symptom.LIMB_PAIN);
             brokenBone.addSymptom(Symptom.SWELLING);
             brokenBone.addSymptom(Symptom.BRUISING);
             brokenBone.addSymptom(Symptom.TENDERNESS);
+        illnessRepository.save(brokenBone);
 
-        Illness appendicitis = new Illness("Appendicitis", gastrologist);
+        Illness appendicitis = new Illness("Appendicitis", gastroenterologist);
             appendicitis.addSymptom(Symptom.STOMACH_ACHE);
             appendicitis.addSymptom(Symptom.FEVER);
             appendicitis.addSymptom(Symptom.NAUSEA);
             appendicitis.addSymptom(Symptom.CONSTIPATION);
             appendicitis.addSymptom(Symptom.DIARRHEA);
+        illnessRepository.save(appendicitis);
 
         Illness fungus = new Illness("Fungus", dermatologist);
             fungus.addSymptom(Symptom.ITCHING);
             fungus.addSymptom(Symptom.RASH);
             fungus.addSymptom(Symptom.NAIL_DISCOLORATION);
+        illnessRepository.save(fungus);
 
-        Illness hepatitis = new Illness("Flu", gastrologist);
+        Illness hepatitis = new Illness("Flu", gastroenterologist);
             hepatitis.addSymptom(Symptom.JAUNDICE);
             hepatitis.addSymptom(Symptom.FATIGUE);
             hepatitis.addSymptom(Symptom.FEVER);
             hepatitis.addSymptom(Symptom.DIARRHEA);
             hepatitis.addSymptom(Symptom.NAUSEA);
             hepatitis.addSymptom(Symptom.STOMACH_ACHE);
+        illnessRepository.save(hepatitis);
 
         Illness uti = new Illness("UTI", urologistGynecologist);
             uti.addSymptom(Symptom.GENITAL_PAIN);
@@ -124,6 +150,7 @@ public class DataLoader implements ApplicationRunner {
             uti.addSymptom(Symptom.FEVER);
             uti.addSymptom(Symptom.FATIGUE);
             uti.addSymptom(Symptom.BACK_PAIN);
+        illnessRepository.save(uti);
 
         Illness meningitis = new Illness("Meningitis", neurologist);
             meningitis.addSymptom(Symptom.FEVER);
@@ -134,6 +161,7 @@ public class DataLoader implements ApplicationRunner {
             meningitis.addSymptom(Symptom.RASH);
             meningitis.addSymptom(Symptom.NECK_PAIN);
             meningitis.addSymptom(Symptom.SEIZURES);
+        illnessRepository.save(meningitis);
 
         Illness zikaVirus = new Illness("Zika Virus", generalDoctor);
             zikaVirus.addSymptom(Symptom.FEVER);
@@ -141,6 +169,7 @@ public class DataLoader implements ApplicationRunner {
             zikaVirus.addSymptom(Symptom.HEADACHE);
             zikaVirus.addSymptom(Symptom.BLOODSHOT_EYES);
             zikaVirus.addSymptom(Symptom.LIMB_PAIN);
+        illnessRepository.save(zikaVirus);
 
         Illness chickenPox = new Illness("Chicken Pox", dermatologist);
             chickenPox.addSymptom(Symptom.RASH);
@@ -148,21 +177,25 @@ public class DataLoader implements ApplicationRunner {
             chickenPox.addSymptom(Symptom.LIMB_PAIN);
             chickenPox.addSymptom(Symptom.FATIGUE);
             chickenPox.addSymptom(Symptom.ITCHING);
+        illnessRepository.save(chickenPox);
 
-        Illness dysentery = new Illness("Dysentery", gastrologist);
+        Illness dysentery = new Illness("Dysentery", gastroenterologist);
             dysentery.addSymptom(Symptom.DIARRHEA);
             dysentery.addSymptom(Symptom.STOMACH_ACHE);
             dysentery.addSymptom(Symptom.FEVER);
             dysentery.addSymptom(Symptom.NAUSEA);
             dysentery.addSymptom(Symptom.VOMIT);
+        illnessRepository.save(chickenPox);
 
         Illness hypochondria = new Illness("Hypohondria", psychologist);
             hypochondria.addAllSymptoms();
+        illnessRepository.save(hypochondria);
 
         Illness depression = new Illness("Depression", psychologist);
             depression.addSymptom(Symptom.ANXIETY);
             depression.addSymptom(Symptom.FATIGUE);
             depression.addSymptom(Symptom.INSOMNIA);
+        illnessRepository.save(depression);
 
         Illness substanceOverdose = new Illness("Substance Overdose", generalDoctor);
             substanceOverdose.addSymptom(Symptom.BLOODSHOT_EYES);
@@ -174,24 +207,28 @@ public class DataLoader implements ApplicationRunner {
             substanceOverdose.addSymptom(Symptom.NAUSEA);
             substanceOverdose.addSymptom(Symptom.MIGRAINE);
             substanceOverdose.addSymptom(Symptom.DIZZINESS);
+        illnessRepository.save(substanceOverdose);
 
         Illness dehydration = new Illness("Dehydration", generalDoctor);
             dehydration.addSymptom(Symptom.FATIGUE);
             dehydration.addSymptom(Symptom.DIZZINESS);
             dehydration.addSymptom(Symptom.HEADACHE);
             dehydration.addSymptom(Symptom.DRY_MOUTH);
+        illnessRepository.save(dehydration);
 
         Illness earInfection = new Illness("Ear Infection", generalDoctor);
             earInfection.addSymptom(Symptom.EAR_PAIN);
             earInfection.addSymptom(Symptom.DIZZINESS);
             earInfection.addSymptom(Symptom.FEVER);
             earInfection.addSymptom(Symptom.ITCHING);
+        illnessRepository.save(earInfection);
 
         Illness pinkEye = new Illness("Pink Eye", generalDoctor);
             pinkEye.addSymptom(Symptom.BLOODSHOT_EYES);
             pinkEye.addSymptom(Symptom.ITCHING);
             pinkEye.addSymptom(Symptom.BLURRY_VISION);
             pinkEye.addSymptom(Symptom.SWELLING);
+        illnessRepository.save(pinkEye);
 
         Illness bloodClots = new Illness("Blood Clots", cardiologist);
             bloodClots.addSymptom(Symptom.SWELLING);
@@ -199,12 +236,14 @@ public class DataLoader implements ApplicationRunner {
             bloodClots.addSymptom(Symptom.CHEST_PAIN);
             bloodClots.addSymptom(Symptom.HEADACHE);
             bloodClots.addSymptom(Symptom.BLURRY_VISION);
+        illnessRepository.save(bloodClots);
 
         Illness epilepsy = new Illness("Epilepsy", neurologist);
             epilepsy.addSymptom(Symptom.SEIZURES);
             epilepsy.addSymptom(Symptom.LOSS_OF_CONSCIOUSNESS);
             epilepsy.addSymptom(Symptom.ANXIETY);
             epilepsy.addSymptom(Symptom.LOSS_OF_SMELL_OR_TASTE);
+        illnessRepository.save(epilepsy);
 
         Illness concussion = new Illness("Concussion", neurologist);
             concussion.addSymptom(Symptom.DIZZINESS);
@@ -214,6 +253,7 @@ public class DataLoader implements ApplicationRunner {
             concussion.addSymptom(Symptom.CONFUSION);
             concussion.addSymptom(Symptom.FATIGUE);
             concussion.addSymptom(Symptom.VOMIT);
+        illnessRepository.save(concussion);
 
         // ILLNESS POOL
 

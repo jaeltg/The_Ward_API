@@ -2,12 +2,24 @@ package com.codeclan.example.The_Ward.models.people;
 
 import com.codeclan.example.The_Ward.models.illness.Illness;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="patients")
 public class Patient extends Person {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name="illness")
     private Illness illness;
+
+    @Column(name = "health")
     private int health;
+
+    @Column(name="status")
     private Status status;
 
     public Patient(String name, int age, String photo, Illness illness, int health, Status status) {

@@ -1,10 +1,12 @@
 package com.codeclan.example.The_Ward.models.illness;
 
+import com.codeclan.example.The_Ward.models.people.Patient;
 import com.codeclan.example.The_Ward.models.people.Specialist;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="illnesses")
@@ -18,7 +20,7 @@ public class Illness {
     @Column(name="name")
     private String name;
 
-    @Column(name="symptoms")
+    @Column(name="symptoms", length = 1000)
     private ArrayList<Symptom> allSymptoms;
 
     @Column(name="visible_symptoms")
@@ -29,11 +31,16 @@ public class Illness {
     @JsonIgnoreProperties({"illnesses"})
     private Specialist specialist;
 
+    @JsonIgnoreProperties({"illness"})
+    @OneToMany(mappedBy = "illness")
+    private List<Patient> patientsWithIllness;
+
     public Illness(String name, Specialist specialist) {
         this.name = name;
         this.allSymptoms = new ArrayList<>();
         this.visibleSymptoms = new ArrayList<>();
         this.specialist = specialist;
+        this.patientsWithIllness = new ArrayList<>();
     }
 
     public Illness() {

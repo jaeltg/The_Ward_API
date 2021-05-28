@@ -1,13 +1,25 @@
 package com.codeclan.example.The_Ward.models.people;
 
+import javax.persistence.*;
+
+@MappedSuperclass
 public abstract class Person {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
 
-    private String name;
+    @Column(name="name")
+    private Name name;
+
+    @Column(name="age")
     private int age;
+
+    @Column(name="photo")
     private String photo;
 
-    public Person(String name, int age, String photo) {
+    public Person(Name name, int age, String photo) {
         this.name = name;
         this.age = age;
         this.photo = photo;
@@ -17,12 +29,19 @@ public abstract class Person {
 
     }
 
+    public Long getId() {
+        return id;
+    }
 
-    public String getName() {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Name getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(Name name) {
         this.name = name;
     }
 

@@ -1,9 +1,9 @@
 package com.codeclan.example.The_Ward.components;
 
+import com.codeclan.example.The_Ward.models.Game;
 import com.codeclan.example.The_Ward.models.illness.Illness;
 import com.codeclan.example.The_Ward.models.illness.Symptom;
-import com.codeclan.example.The_Ward.models.people.Specialist;
-import com.codeclan.example.The_Ward.models.people.Speciality;
+import com.codeclan.example.The_Ward.models.people.*;
 import com.codeclan.example.The_Ward.repositories.IllnessRepository;
 import com.codeclan.example.The_Ward.repositories.PatientRepository;
 import com.codeclan.example.The_Ward.repositories.SpecialistRepository;
@@ -13,6 +13,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -32,21 +33,23 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args){
 
+        Game game = new Game();
+
         // SPECIALISTS
 
-        Specialist gastroenterologist = new Specialist("John",32, "photo url", Speciality.GASTROENTEROLOGIST);
+        Specialist gastroenterologist = new Specialist(Name.JOHN,32, "photo url", Speciality.GASTROENTEROLOGIST);
         specialistRepository.save(gastroenterologist);
-        Specialist generalDoctor = new Specialist("Patrick",42, "photo url", Speciality.GENERAL_DOCTOR);
+        Specialist generalDoctor = new Specialist(Name.PABLO,42, "photo url", Speciality.GENERAL_DOCTOR);
         specialistRepository.save(generalDoctor);
-        Specialist cardiologist = new Specialist("Chandru", 41, "photo URL", Speciality.CARDIOLOGIST);
+        Specialist cardiologist = new Specialist(Name.FRANCESCA, 41, "photo URL", Speciality.CARDIOLOGIST);
         specialistRepository.save(cardiologist);
-        Specialist urologistGynecologist = new Specialist("Dougie", 32, "photo URL", Speciality.UROLOGIST_GYNECOLOGIST);
+        Specialist urologistGynecologist = new Specialist(Name.BRAD, 32, "photo URL", Speciality.UROLOGIST_GYNECOLOGIST);
         specialistRepository.save(urologistGynecologist);
-        Specialist neurologist = new Specialist("Suzanne", 52, "photo URL", Speciality.NEUROLOGIST);
+        Specialist neurologist = new Specialist(Name.LOUISE, 52, "photo URL", Speciality.NEUROLOGIST);
         specialistRepository.save(neurologist);
-        Specialist dermatologist = new Specialist("Mary", 33, "photo URL", Speciality.DERMATOLOGIST);
+        Specialist dermatologist = new Specialist(Name.MARGARETH, 33, "photo URL", Speciality.DERMATOLOGIST);
         specialistRepository.save(dermatologist);
-        Specialist psychologist = new Specialist("Wei", 62, "photo URL", Speciality.PSYCHOLOGIST);
+        Specialist psychologist = new Specialist(Name.WEI, 62, "photo URL", Speciality.PSYCHOLOGIST);
         specialistRepository.save(psychologist);
 
         // ILLNESSES
@@ -283,6 +286,91 @@ public class DataLoader implements ApplicationRunner {
             illnessPool.add(bloodClots);
             illnessPool.add(epilepsy);
             illnessPool.add(concussion);
+
+        // PATIENTS
+
+        Illness randomIllness1 = game.getRandomIllness(illnessPool);
+        Name randomName1 = game.getRandomName();
+        Illness randomIllness2 = game.getRandomIllness(illnessPool);
+        Name randomName2 = game.getRandomName();
+        Illness randomIllness3 = game.getRandomIllness(illnessPool);
+        Name randomName3 = game.getRandomName();
+        Illness randomIllness4 = game.getRandomIllness(illnessPool);
+        Name randomName4 = game.getRandomName();
+        Illness randomIllness5 = game.getRandomIllness(illnessPool);
+        Name randomName5 = game.getRandomName();
+        Illness randomIllness6 = game.getRandomIllness(illnessPool);
+        Name randomName6 = game.getRandomName();
+        Illness randomIllness7 = game.getRandomIllness(illnessPool);
+        Name randomName7 = game.getRandomName();
+        Illness randomIllness8 = game.getRandomIllness(illnessPool);
+        Name randomName8 = game.getRandomName();
+        Illness randomIllness9 = game.getRandomIllness(illnessPool);
+        Name randomName9 = game.getRandomName();
+        Illness randomIllness10 = game.getRandomIllness(illnessPool);
+        Name randomName10 = game.getRandomName();
+        Illness randomIllness11 = game.getRandomIllness(illnessPool);
+        Name randomName11 = game.getRandomName();
+        Illness randomIllness12 = game.getRandomIllness(illnessPool);
+        Name randomName12 = game.getRandomName();
+        Illness randomIllness13 = game.getRandomIllness(illnessPool);
+        Name randomName13 = game.getRandomName();
+        Illness randomIllness14 = game.getRandomIllness(illnessPool);
+        Name randomName14 = game.getRandomName();
+        Illness randomIllness15 = game.getRandomIllness(illnessPool);
+        Name randomName15 = game.getRandomName();
+        Illness randomIllness16 = game.getRandomIllness(illnessPool);
+        Name randomName16 = game.getRandomName();
+        Illness randomIllness17 = game.getRandomIllness(illnessPool);
+        Name randomName17 = game.getRandomName();
+        Illness randomIllness18 = game.getRandomIllness(illnessPool);
+        Name randomName18 = game.getRandomName();
+        Illness randomIllness19 = game.getRandomIllness(illnessPool);
+        Name randomName19 = game.getRandomName();
+        Illness randomIllness20 = game.getRandomIllness(illnessPool);
+        Name randomName20 = game.getRandomName();
+
+
+        Patient patient1 = new Patient(randomName1, 34, "photo url", randomIllness1, 30, Status.WAITING);
+        patientRepository.save(patient1);
+        Patient patient2 = new Patient(randomName2, 49, "photo url", randomIllness2, 20, Status.WAITING);
+        patientRepository.save(patient2);
+        Patient patient3 = new Patient(randomName3, 49, "photo url", randomIllness3, 20, Status.WAITING);
+        patientRepository.save(patient3);
+        Patient patient4 = new Patient(randomName4, 49, "photo url", randomIllness4, 20, Status.WAITING);
+        patientRepository.save(patient4);
+        Patient patient5 = new Patient(randomName5, 49, "photo url", randomIllness5, 20, Status.WAITING);
+        patientRepository.save(patient5);
+        Patient patient6 = new Patient(randomName6, 49, "photo url", randomIllness6, 20, Status.WAITING);
+        patientRepository.save(patient6);
+        Patient patient7 = new Patient(randomName7, 49, "photo url", randomIllness7, 20, Status.WAITING);
+        patientRepository.save(patient7);
+        Patient patient8 = new Patient(randomName8, 49, "photo url", randomIllness8, 20, Status.WAITING);
+        patientRepository.save(patient8);
+        Patient patient9 = new Patient(randomName9, 49, "photo url", randomIllness9, 20, Status.WAITING);
+        patientRepository.save(patient9);
+        Patient patient10 = new Patient(randomName10, 49, "photo url", randomIllness10, 20, Status.WAITING);
+        patientRepository.save(patient10);
+        Patient patient11 = new Patient(randomName11, 49, "photo url", randomIllness11, 20, Status.WAITING);
+        patientRepository.save(patient11);
+        Patient patient12 = new Patient(randomName12, 49, "photo url", randomIllness12, 20, Status.WAITING);
+        patientRepository.save(patient12);
+        Patient patient13 = new Patient(randomName13, 49, "photo url", randomIllness13, 20, Status.WAITING);
+        patientRepository.save(patient13);
+        Patient patient14 = new Patient(randomName14, 49, "photo url", randomIllness14, 20, Status.WAITING);
+        patientRepository.save(patient14);
+        Patient patient15 = new Patient(randomName15, 49, "photo url", randomIllness15, 20, Status.WAITING);
+        patientRepository.save(patient15);
+        Patient patient16 = new Patient(randomName16, 49, "photo url", randomIllness16, 20, Status.WAITING);
+        patientRepository.save(patient16);
+        Patient patient17 = new Patient(randomName17, 49, "photo url", randomIllness17, 20, Status.WAITING);
+        patientRepository.save(patient17);
+        Patient patient18 = new Patient(randomName18, 49, "photo url", randomIllness18, 20, Status.WAITING);
+        patientRepository.save(patient18);
+        Patient patient19 = new Patient(randomName19, 49, "photo url", randomIllness19, 20, Status.WAITING);
+        patientRepository.save(patient19);
+        Patient patient20 = new Patient(randomName20, 49, "photo url", randomIllness20, 20, Status.WAITING);
+        patientRepository.save(patient20);
 
 
     }

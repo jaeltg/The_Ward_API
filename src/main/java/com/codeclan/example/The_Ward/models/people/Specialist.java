@@ -10,11 +10,6 @@ import java.util.List;
 @Table(name="specialists")
 public class Specialist extends Person{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
-
     @Column(name="specialty")
     private Speciality speciality;
 
@@ -22,21 +17,13 @@ public class Specialist extends Person{
     @OneToMany(mappedBy = "specialist")
     private List<Illness> illnessesToTreat;
 
-    public Specialist(String name, int age, String photo, Speciality speciality) {
+    public Specialist(Name name, int age, String photo, Speciality speciality) {
         super(name, age, photo);
         this.speciality = speciality;
     }
 
     public Specialist () {
 
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Speciality getSpeciality() {

@@ -1,10 +1,21 @@
 package com.codeclan.example.The_Ward.models.people;
 
+import javax.persistence.*;
+
+@MappedSuperclass
 public abstract class Person {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+//    @Column(name = "name")
     private String name;
+
+//    @Column(name = "age")
     private int age;
+
+//    @Column(name = "photo url")
     private String photo;
 
     public Person(String name, int age, String photo) {

@@ -1,15 +1,33 @@
 package com.codeclan.example.The_Ward.models.illness;
 
 import com.codeclan.example.The_Ward.models.people.Specialist;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
 
 import java.util.ArrayList;
+import java.io.Serializable;
+import javax.persistence.*;
 
-public class Illness {
+@Entity
+@Table(name = "illnesses")
+public class Illness implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "name")
     private String name;
-    private ArrayList<Symptom> allSymptoms;
-    private ArrayList<Symptom> visibleSymptoms;
+
+//    @Column(name = "allSymptoms")
+    private ArrayList<String> allSymptoms;
+
+//    @Column(name = "visibleSymptoms")
+    private ArrayList<String> visibleSymptoms;
+
+    @JsonIgnoreProperties(value = "illnesses")
+    @ManyToOne
+    @JoinColumn(name = "specialist_id", nullable = false)
     private Specialist specialist;
 
     public Illness(String name, Specialist specialist) {
@@ -47,29 +65,29 @@ public class Illness {
         this.name = name;
     }
 
-    public ArrayList<Symptom> getAllSymptoms() {
+    public ArrayList<String> getAllSymptoms() {
         return allSymptoms;
     }
 
-    public void setAllSymptoms(ArrayList<Symptom> allSymptoms) {
+    public void setAllSymptoms(ArrayList<String> allSymptoms) {
         this.allSymptoms = allSymptoms;
     }
 
-    public ArrayList<Symptom> getVisibleSymptoms() {
+    public ArrayList<String> getVisibleSymptoms() {
         return visibleSymptoms;
     }
 
-    public void setVisibleSymptoms(ArrayList<Symptom> visibleSymptoms) {
+    public void setVisibleSymptoms(ArrayList<String> visibleSymptoms) {
         this.visibleSymptoms = visibleSymptoms;
     }
 
-    public void addSymptom(Symptom symptom) {
+    public void addSymptom(String symptom) {
         this.allSymptoms.add(symptom);
     }
 
     public void addAllSymptoms() {
         for (Symptom currentSymptom : Symptom.values()) {
-            this.allSymptoms.add(currentSymptom);
+            this.allSymptoms.add(currentSymptom.getValue());
         }
     }
 

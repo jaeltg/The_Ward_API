@@ -40,5 +40,6 @@ public enum Symptom {
     SWELLING,
     BRUISING,
     TENDERNESS,
-    INSOMNIA
+    INSOMNIA,
+    DRY_MOUTH
 }

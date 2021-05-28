@@ -62,4 +62,17 @@ public class Illness {
     public void setVisibleSymptoms(ArrayList<Symptom> visibleSymptoms) {
         this.visibleSymptoms = visibleSymptoms;
     }
+
+    public void addSymptom(Symptom symptom) {
+        this.allSymptoms.add(symptom);
+    }
+
+    public void addAllSymptoms() {
+        for (Symptom currentSymptom : Symptom.values()) {
+            this.allSymptoms.add(currentSymptom);
+        }
+    }
+
+
+
 }

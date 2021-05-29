@@ -18,7 +18,12 @@ public class Game {
         return Name.values()[randomNameIndex];
     }
 
-//    public int getRandomAge(){
-//        int
-//    }
+    public int getRandomAge(int min, int max){
+        int randomAge = new Random().nextInt((max - min) + 1) + min;
+        return randomAge;
+    }
+
+
+
+
 }

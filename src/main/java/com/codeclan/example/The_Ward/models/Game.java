@@ -2,6 +2,8 @@ package com.codeclan.example.The_Ward.models;
 
 import com.codeclan.example.The_Ward.models.illness.Illness;
 import com.codeclan.example.The_Ward.models.people.Name;
+import com.codeclan.example.The_Ward.models.people.Patient;
+import com.codeclan.example.The_Ward.models.people.Status;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -19,8 +21,14 @@ public class Game {
     }
 
     public int getRandomAge(int min, int max){
-        int randomAge = new Random().nextInt((max - min) + 1) + min;
-        return randomAge;
+        return new Random().nextInt((max - min) + 1) + min;
+    }
+
+    public Patient createRandomPatient(String photo, int health, ArrayList<Illness> illnesses){
+        Name randomName = getRandomName();
+        Illness randomIllness = getRandomIllness(illnesses);
+        int randomAge = getRandomAge(16, 99);
+        return new Patient(randomName, randomAge, photo, randomIllness,20, Status.WAITING);
     }
 
 

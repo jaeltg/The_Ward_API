@@ -4,9 +4,9 @@ import com.codeclan.example.The_Ward.models.Game;
 import com.codeclan.example.The_Ward.models.illness.Illness;
 import com.codeclan.example.The_Ward.models.illness.Symptom;
 import com.codeclan.example.The_Ward.models.people.*;
-import com.codeclan.example.The_Ward.repositories.IllnessRepository;
-import com.codeclan.example.The_Ward.repositories.PatientRepository;
-import com.codeclan.example.The_Ward.repositories.SpecialistRepository;
+import com.codeclan.example.The_Ward.models.rooms.WaitingRoom;
+import com.codeclan.example.The_Ward.models.rooms.Ward;
+import com.codeclan.example.The_Ward.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -26,6 +26,12 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     SpecialistRepository specialistRepository;
+
+    @Autowired
+    WaitingRoomRepository waitingRoomRepository;
+
+    @Autowired
+    WardRepository wardRepository;
 
     public DataLoader(){
 
@@ -387,6 +393,18 @@ public class DataLoader implements ApplicationRunner {
         patientRepository.save(patient20);
 
 
+//        Waiting Room
+
+        WaitingRoom waitingRoom1 = new WaitingRoom(8);
+        waitingRoomRepository.save(waitingRoom1);
+
+//        Ward
+
+        Ward ward1 = new Ward(8);
+        wardRepository.save(ward1);
     }
+
+
+
 
 }

@@ -295,112 +295,21 @@ public class DataLoader implements ApplicationRunner {
 
         // PATIENTS
 
-        Illness randomIllness1 = game.getRandomIllness(illnessPool);
-        Name randomName1 = game.getRandomName();
-        Illness randomIllness2 = game.getRandomIllness(illnessPool);
-        Name randomName2 = game.getRandomName();
-        Illness randomIllness3 = game.getRandomIllness(illnessPool);
-        Name randomName3 = game.getRandomName();
-        Illness randomIllness4 = game.getRandomIllness(illnessPool);
-        Name randomName4 = game.getRandomName();
-        Illness randomIllness5 = game.getRandomIllness(illnessPool);
-        Name randomName5 = game.getRandomName();
-        Illness randomIllness6 = game.getRandomIllness(illnessPool);
-        Name randomName6 = game.getRandomName();
-        Illness randomIllness7 = game.getRandomIllness(illnessPool);
-        Name randomName7 = game.getRandomName();
-        Illness randomIllness8 = game.getRandomIllness(illnessPool);
-        Name randomName8 = game.getRandomName();
-        Illness randomIllness9 = game.getRandomIllness(illnessPool);
-        Name randomName9 = game.getRandomName();
-        Illness randomIllness10 = game.getRandomIllness(illnessPool);
-        Name randomName10 = game.getRandomName();
-        Illness randomIllness11 = game.getRandomIllness(illnessPool);
-        Name randomName11 = game.getRandomName();
-        Illness randomIllness12 = game.getRandomIllness(illnessPool);
-        Name randomName12 = game.getRandomName();
-        Illness randomIllness13 = game.getRandomIllness(illnessPool);
-        Name randomName13 = game.getRandomName();
-        Illness randomIllness14 = game.getRandomIllness(illnessPool);
-        Name randomName14 = game.getRandomName();
-        Illness randomIllness15 = game.getRandomIllness(illnessPool);
-        Name randomName15 = game.getRandomName();
-        Illness randomIllness16 = game.getRandomIllness(illnessPool);
-        Name randomName16 = game.getRandomName();
-        Illness randomIllness17 = game.getRandomIllness(illnessPool);
-        Name randomName17 = game.getRandomName();
-        Illness randomIllness18 = game.getRandomIllness(illnessPool);
-        Name randomName18 = game.getRandomName();
-        Illness randomIllness19 = game.getRandomIllness(illnessPool);
-        Name randomName19 = game.getRandomName();
-        Illness randomIllness20 = game.getRandomIllness(illnessPool);
-        Name randomName20 = game.getRandomName();
-        int randomAge1 = game.getRandomAge(16, 99);
-        int randomAge2 = game.getRandomAge(16, 99);
-        int randomAge3 = game.getRandomAge(16, 99);
-        int randomAge4 = game.getRandomAge(16, 99);
-        int randomAge5 = game.getRandomAge(16, 99);
-        int randomAge6 = game.getRandomAge(16, 99);
-        int randomAge7 = game.getRandomAge(16, 99);
-        int randomAge8 = game.getRandomAge(16, 99);
-        int randomAge9 = game.getRandomAge(16, 99);
-        int randomAge10 = game.getRandomAge(16, 99);
-        int randomAge11 = game.getRandomAge(16, 99);
-        int randomAge12 = game.getRandomAge(16, 99);
-        int randomAge13 = game.getRandomAge(16, 99);
-        int randomAge14 = game.getRandomAge(16, 99);
-
-
-        Patient patient1 = new Patient(randomName1, randomAge1, "photo url", randomIllness1, 20, Status.WAITING);
+        Patient patient1 = game.createRandomPatient("photo url", illnessPool);
         patientRepository.save(patient1);
-        Patient patient2 = new Patient(randomName2, randomAge2, "photo url", randomIllness2, 20, Status.WAITING);
+        Patient patient2 = game.createRandomPatient("photo url", illnessPool);
         patientRepository.save(patient2);
-        Patient patient3 = new Patient(randomName3, randomAge3, "photo url", randomIllness3, 20, Status.WAITING);
+        Patient patient3 = game.createRandomPatient("photo url", illnessPool);
         patientRepository.save(patient3);
-        Patient patient4 = new Patient(randomName4, randomAge4, "photo url", randomIllness4, 20, Status.WAITING);
-        patientRepository.save(patient4);
-        Patient patient5 = new Patient(randomName5, randomAge5, "photo url", randomIllness5, 20, Status.WAITING);
-        patientRepository.save(patient5);
-        Patient patient6 = new Patient(randomName6, randomAge6, "photo url", randomIllness6, 20, Status.WAITING);
-        patientRepository.save(patient6);
-        Patient patient7 = new Patient(randomName7, randomAge7, "photo url", randomIllness7, 20, Status.WAITING);
-        patientRepository.save(patient7);
-        Patient patient8 = new Patient(randomName8, randomAge8, "photo url", randomIllness8, 20, Status.WAITING);
-        patientRepository.save(patient8);
-        Patient patient9 = new Patient(randomName9, randomAge9, "photo url", randomIllness9, 20, Status.WAITING);
-        patientRepository.save(patient9);
-        Patient patient10 = new Patient(randomName10, randomAge10, "photo url", randomIllness10, 20, Status.WAITING);
-        patientRepository.save(patient10);
-        Patient patient11 = new Patient(randomName11, randomAge11, "photo url", randomIllness11, 20, Status.WAITING);
-        patientRepository.save(patient11);
-        Patient patient12 = new Patient(randomName12, randomAge12, "photo url", randomIllness12, 20, Status.WAITING);
-        patientRepository.save(patient12);
-        Patient patient13 = new Patient(randomName13, randomAge13, "photo url", randomIllness13, 20, Status.WAITING);
-        patientRepository.save(patient13);
-        Patient patient14 = new Patient(randomName14, randomAge14, "photo url", randomIllness14, 20, Status.WAITING);
-        patientRepository.save(patient14);
-        Patient patient15 = new Patient(randomName15, randomAge5, "photo url", randomIllness15, 20, Status.WAITING);
-        patientRepository.save(patient15);
-        Patient patient16 = new Patient(randomName16, randomAge7, "photo url", randomIllness16, 20, Status.WAITING);
-        patientRepository.save(patient16);
-        Patient patient17 = new Patient(randomName17, randomAge11, "photo url", randomIllness17, 20, Status.WAITING);
-        patientRepository.save(patient17);
-        Patient patient18 = new Patient(randomName18, randomAge1, "photo url", randomIllness18, 20, Status.WAITING);
-        patientRepository.save(patient18);
-        Patient patient19 = new Patient(randomName19, randomAge13, "photo url", randomIllness19, 20, Status.WAITING);
-        patientRepository.save(patient19);
-        Patient patient20 = new Patient(randomName20, randomAge3, "photo url", randomIllness20, 20, Status.WAITING);
-        patientRepository.save(patient20);
 
-
-//        Waiting Room
+//      WAITING ROOM
 
         WaitingRoom waitingRoom1 = new WaitingRoom(8);
         waitingRoomRepository.save(waitingRoom1);
 
-//        Ward
+//      WARD
 
-        Ward ward1 = new Ward(8);
+        Ward ward1 = new Ward(6);
         wardRepository.save(ward1);
     }
 

@@ -1,6 +1,5 @@
 package com.codeclan.example.The_Ward.controllers;
-import com.codeclan.example.The_Ward.models.illness.Illness;
-import com.codeclan.example.The_Ward.models.rooms.WaitingRoom;
+
 import com.codeclan.example.The_Ward.models.rooms.Ward;
 import com.codeclan.example.The_Ward.repositories.WardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,7 @@ public class WardController {
     WardRepository wardRepository;
 
     @GetMapping(value = "/wards")
-    public ResponseEntity<List<Ward>> getAllWards() {
+    public ResponseEntity<List<Ward>> getAllWards(){
         return new ResponseEntity<>(wardRepository.findAll(), HttpStatus.OK);
     }
 
@@ -36,6 +35,7 @@ public class WardController {
     public ResponseEntity<Ward> updateWard(@RequestBody Ward ward, @PathVariable Long id){
         Ward wardToUpdate = wardRepository.findById(id).get();
         wardToUpdate.setCapacity(ward.getCapacity());
+        wardToUpdate.setPatients(ward.getPatients());
         wardRepository.save(wardToUpdate);
         return new ResponseEntity<>(wardToUpdate, HttpStatus.OK);
     }
@@ -45,4 +45,6 @@ public class WardController {
         wardRepository.deleteById(id);
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
+
 }
+

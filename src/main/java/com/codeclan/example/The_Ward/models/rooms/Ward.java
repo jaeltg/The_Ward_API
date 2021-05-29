@@ -2,43 +2,42 @@ package com.codeclan.example.The_Ward.models.rooms;
 
 import com.codeclan.example.The_Ward.models.people.Patient;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.ArrayList;
 
+
+@Entity
+@Table(name="wards")
 public class Ward extends Room{
 
-    private Long id;
-    private ArrayList<Patient> patientList;
+    @Column(name="patients")
+    private ArrayList<Patient> patients;
 
-    public Ward(int capacity){
+    public Ward(int capacity) {
         super(capacity);
-        this.patientList = new ArrayList<>();
+        this.patients = new ArrayList<>();
     }
 
     public Ward(){
 
     }
 
-    public Long getId() {
-        return id;
+    public ArrayList<Patient> getPatients() {
+        return patients;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPatients(ArrayList<Patient> patients) {
+        this.patients = patients;
     }
 
-    public ArrayList<Patient> getPatientList() {
-        return patientList;
+
+    public void addPatientToPatients(Patient patient){
+        this.patients.add(patient);
     }
 
-    public void setPatientList(ArrayList<Patient> patientList) {
-        this.patientList = patientList;
-    }
-
-    public void addPatientToPatientList(Patient patient){
-        this.patientList.add(patient);
-    }
-
-    public void clearPatientList(){
-        this.patientList.clear();
+    public void clearPatients(){
+        this.patients.clear();
     }
 }

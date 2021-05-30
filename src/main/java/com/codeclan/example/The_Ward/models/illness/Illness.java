@@ -19,7 +19,7 @@ public class Illness implements Serializable {
     @Column(name = "name")
     private String name;
 
-//    @Column(name = "allSymptoms")
+    @Column(length = 1024)
     private ArrayList<String> allSymptoms;
 
 //    @Column(name = "visibleSymptoms")

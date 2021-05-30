@@ -188,11 +188,13 @@ public class DataLoader implements ApplicationRunner {
 
         Illness hypochondria = new Illness("Hypohondria", psychologist);
             hypochondria.addAllSymptoms();
+            illnessRepository.save(hypochondria);
 
         Illness depression = new Illness("Depression", psychologist);
             depression.addSymptom(Symptom.ANXIETY.getValue());
             depression.addSymptom(Symptom.FATIGUE.getValue());
             depression.addSymptom(Symptom.INSOMNIA.getValue());
+            illnessRepository.save(depression);
 
         Illness substanceOverdose = new Illness("Substance Overdose", generalDoctor);
             substanceOverdose.addSymptom(Symptom.BLOODSHOT_EYES.getValue());
@@ -204,24 +206,28 @@ public class DataLoader implements ApplicationRunner {
             substanceOverdose.addSymptom(Symptom.NAUSEA.getValue());
             substanceOverdose.addSymptom(Symptom.MIGRAINE.getValue());
             substanceOverdose.addSymptom(Symptom.DIZZINESS.getValue());
+            illnessRepository.save(substanceOverdose);
 
         Illness dehydration = new Illness("Dehydration", generalDoctor);
             dehydration.addSymptom(Symptom.FATIGUE.getValue());
             dehydration.addSymptom(Symptom.DIZZINESS.getValue());
             dehydration.addSymptom(Symptom.HEADACHE.getValue());
             dehydration.addSymptom(Symptom.DRY_MOUTH.getValue());
+            illnessRepository.save(dehydration);
 
         Illness earInfection = new Illness("Ear Infection", generalDoctor);
             earInfection.addSymptom(Symptom.EAR_PAIN.getValue());
             earInfection.addSymptom(Symptom.DIZZINESS.getValue());
             earInfection.addSymptom(Symptom.FEVER.getValue());
             earInfection.addSymptom(Symptom.ITCHING.getValue());
+            illnessRepository.save(earInfection);
 
         Illness pinkEye = new Illness("Pink Eye", generalDoctor);
             pinkEye.addSymptom(Symptom.BLOODSHOT_EYES.getValue());
             pinkEye.addSymptom(Symptom.ITCHING.getValue());
             pinkEye.addSymptom(Symptom.BLURRY_VISION.getValue());
             pinkEye.addSymptom(Symptom.SWELLING.getValue());
+            illnessRepository.save(pinkEye);
 
         Illness bloodClots = new Illness("Blood Clots", cardiologist);
             bloodClots.addSymptom(Symptom.SWELLING.getValue());
@@ -229,12 +235,14 @@ public class DataLoader implements ApplicationRunner {
             bloodClots.addSymptom(Symptom.CHEST_PAIN.getValue());
             bloodClots.addSymptom(Symptom.HEADACHE.getValue());
             bloodClots.addSymptom(Symptom.BLURRY_VISION.getValue());
+            illnessRepository.save(bloodClots);
 
         Illness epilepsy = new Illness("Epilepsy", neurologist);
             epilepsy.addSymptom(Symptom.SEIZURES.getValue());
             epilepsy.addSymptom(Symptom.LOSS_OF_CONSCIOUSNESS.getValue());
             epilepsy.addSymptom(Symptom.ANXIETY.getValue());
             epilepsy.addSymptom(Symptom.LOSS_OF_SMELL_OR_TASTE.getValue());
+            illnessRepository.save(epilepsy);
 
         Illness concussion = new Illness("Concussion", neurologist);
             concussion.addSymptom(Symptom.DIZZINESS.getValue());
@@ -244,6 +252,7 @@ public class DataLoader implements ApplicationRunner {
             concussion.addSymptom(Symptom.CONFUSION.getValue());
             concussion.addSymptom(Symptom.FATIGUE.getValue());
             concussion.addSymptom(Symptom.VOMIT.getValue());
+            illnessRepository.save(concussion);
 
         // ILLNESS POOL
 

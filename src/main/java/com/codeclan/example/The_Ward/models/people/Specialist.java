@@ -11,14 +11,14 @@ import java.util.List;
 public class Specialist extends Person{
 
     @Column(name="specialty")
-    private Speciality speciality;
+    private String speciality;
 
     @JsonIgnoreProperties({"specialist"})
     @OneToMany(mappedBy = "specialist")
     private List<Illness> illnessesToTreat;
 
-    public Specialist(Name name, int age, String photo, Speciality speciality) {
-        super(name, age, photo);
+    public Specialist(String name, int age, String speciality) {
+        super(name, age);
         this.speciality = speciality;
     }
 
@@ -26,11 +26,11 @@ public class Specialist extends Person{
 
     }
 
-    public Speciality getSpeciality() {
+    public String getSpeciality() {
         return speciality;
     }
 
-    public void setSpeciality(Speciality speciality) {
+    public void setSpeciality(String speciality) {
         this.speciality = speciality;
     }
 }

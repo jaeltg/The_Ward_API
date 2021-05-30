@@ -36,7 +36,6 @@ public class PatientController {
         Patient patientToUpdate = patientRepository.findById(id).get();
         patientToUpdate.setName(patient.getName());
         patientToUpdate.setAge(patient.getAge());
-        patientToUpdate.setPhoto(patient.getPhoto());
         patientToUpdate.setHealth(patient.getHealth());
         patientToUpdate.setIllness(patient.getIllness());
         patientToUpdate.setStatus(patient.getStatus());

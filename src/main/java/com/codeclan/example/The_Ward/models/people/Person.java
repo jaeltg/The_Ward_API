@@ -11,18 +11,15 @@ public abstract class Person {
     private Long id;
 
     @Column(name="name")
-    private Name name;
+    private String name;
 
     @Column(name="age")
     private int age;
 
-    @Column(name="photo")
-    private String photo;
 
-    public Person(Name name, int age, String photo) {
+    public Person(String name, int age) {
         this.name = name;
         this.age = age;
-        this.photo = photo;
     }
 
     public Person () {
@@ -37,11 +34,11 @@ public abstract class Person {
         this.id = id;
     }
 
-    public Name getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Name name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -53,11 +50,4 @@ public abstract class Person {
         this.age = age;
     }
 
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
 }

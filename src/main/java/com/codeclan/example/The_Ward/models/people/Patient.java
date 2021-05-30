@@ -1,16 +1,26 @@
 package com.codeclan.example.The_Ward.models.people;
 
 import com.codeclan.example.The_Ward.models.illness.Illness;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="patients")
 public class Patient extends Person {
 
-
-    private Long id;
+    @ManyToOne
+    @JoinColumn(name = "illness_id")
+    @JsonIgnoreProperties({"patients"})
     private Illness illness;
+
+    @Column(name = "health")
     private int health;
+
+    @Column(name="status")
     private Status status;
 
-    public Patient(String name, int age, String photo, Illness illness, int health, Status status) {
+    public Patient(Name name, int age, String photo, Illness illness, int health, Status status) {
         super(name, age, photo);
         this.illness = illness;
         this.health = health;
@@ -19,14 +29,6 @@ public class Patient extends Person {
 
     public Patient() {
 
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Illness getIllness() {
@@ -52,4 +54,6 @@ public class Patient extends Person {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+
 }

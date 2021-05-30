@@ -1,40 +1,46 @@
 package com.codeclan.example.The_Ward.models.illness;
 
+import com.codeclan.example.The_Ward.models.people.Patient;
 import com.codeclan.example.The_Ward.models.people.Specialist;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cascade;
 
-import java.util.ArrayList;
-import java.io.Serializable;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "illnesses")
-public class Illness implements Serializable {
+@Table(name="illnesses")
+public class Illness {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
+    @Column(name="name")
     private String name;
 
-    @Column(length = 1024)
-    private ArrayList<String> allSymptoms;
+    @Column(name="symptoms", length = 1000)
+    private ArrayList<Symptom> allSymptoms;
 
-//    @Column(name = "visibleSymptoms")
-    private ArrayList<String> visibleSymptoms;
+    @Column(name="visible_symptoms")
+    private ArrayList<Symptom> visibleSymptoms;
 
-    @JsonIgnoreProperties(value = "illnesses")
     @ManyToOne
     @JoinColumn(name = "specialist_id", nullable = false)
+    @JsonIgnoreProperties({"illnesses"})
     private Specialist specialist;
+
+    @JsonIgnoreProperties({"illness"})
+    @OneToMany(mappedBy = "illness")
+    private List<Patient> patientsWithIllness;
 
     public Illness(String name, Specialist specialist) {
         this.name = name;
         this.allSymptoms = new ArrayList<>();
         this.visibleSymptoms = new ArrayList<>();
         this.specialist = specialist;
+        this.patientsWithIllness = new ArrayList<>();
     }
 
     public Illness() {
@@ -65,29 +71,29 @@ public class Illness implements Serializable {
         this.name = name;
     }
 
-    public ArrayList<String> getAllSymptoms() {
+    public ArrayList<Symptom> getAllSymptoms() {
         return allSymptoms;
     }
 
-    public void setAllSymptoms(ArrayList<String> allSymptoms) {
+    public void setAllSymptoms(ArrayList<Symptom> allSymptoms) {
         this.allSymptoms = allSymptoms;
     }
 
-    public ArrayList<String> getVisibleSymptoms() {
+    public ArrayList<Symptom> getVisibleSymptoms() {
         return visibleSymptoms;
     }
 
-    public void setVisibleSymptoms(ArrayList<String> visibleSymptoms) {
+    public void setVisibleSymptoms(ArrayList<Symptom> visibleSymptoms) {
         this.visibleSymptoms = visibleSymptoms;
     }
 
-    public void addSymptom(String symptom) {
+    public void addSymptom(Symptom symptom) {
         this.allSymptoms.add(symptom);
     }
 
     public void addAllSymptoms() {
         for (Symptom currentSymptom : Symptom.values()) {
-            this.allSymptoms.add(currentSymptom.getValue());
+            this.allSymptoms.add(currentSymptom);
         }
     }
 

@@ -2,11 +2,19 @@ package com.codeclan.example.The_Ward.models.rooms;
 
 import com.codeclan.example.The_Ward.models.people.Patient;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
-public class Ward extends Room{
+@Entity
+@Table(name="wards")
+public class Ward extends Room {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name="patient_list")
     private ArrayList<Patient> patientList;
 
     public Ward(int capacity){

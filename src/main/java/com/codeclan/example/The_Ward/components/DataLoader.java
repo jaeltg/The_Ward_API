@@ -43,19 +43,19 @@ public class DataLoader implements ApplicationRunner {
 
         // SPECIALISTS
 
-        Specialist gastroenterologist = new Specialist(Name.JOHN,32, "photo url", Speciality.GASTROENTEROLOGIST);
+        Specialist gastroenterologist = new Specialist(Name.JOHN,32, "John.png", Speciality.GASTROENTEROLOGIST);
         specialistRepository.save(gastroenterologist);
-        Specialist generalDoctor = new Specialist(Name.PABLO,42, "photo url", Speciality.GENERAL_DOCTOR);
+        Specialist generalDoctor = new Specialist(Name.PABLO,42, "Pablo.png", Speciality.GENERAL_DOCTOR);
         specialistRepository.save(generalDoctor);
-        Specialist cardiologist = new Specialist(Name.FRANCESCA, 41, "photo URL", Speciality.CARDIOLOGIST);
+        Specialist cardiologist = new Specialist(Name.FRANCESCA, 41, "Francesca.png", Speciality.CARDIOLOGIST);
         specialistRepository.save(cardiologist);
-        Specialist urologistGynecologist = new Specialist(Name.BRAD, 32, "photo URL", Speciality.UROLOGIST_GYNECOLOGIST);
+        Specialist urologistGynecologist = new Specialist(Name.BRAD, 32, "Brad.png", Speciality.UROLOGIST_GYNECOLOGIST);
         specialistRepository.save(urologistGynecologist);
-        Specialist neurologist = new Specialist(Name.LOUISE, 52, "photo URL", Speciality.NEUROLOGIST);
+        Specialist neurologist = new Specialist(Name.LOUISE, 52, "Louise.png", Speciality.NEUROLOGIST);
         specialistRepository.save(neurologist);
-        Specialist dermatologist = new Specialist(Name.MARGARETH, 33, "photo URL", Speciality.DERMATOLOGIST);
+        Specialist dermatologist = new Specialist(Name.MARGARETH, 33, "Margareth.png", Speciality.DERMATOLOGIST);
         specialistRepository.save(dermatologist);
-        Specialist psychologist = new Specialist(Name.WEI, 62, "photo URL", Speciality.PSYCHOLOGIST);
+        Specialist psychologist = new Specialist(Name.WEI, 62, "Wei.png", Speciality.PSYCHOLOGIST);
         specialistRepository.save(psychologist);
 
         // ILLNESSES

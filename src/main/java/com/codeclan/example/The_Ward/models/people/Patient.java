@@ -20,8 +20,8 @@ public class Patient extends Person {
     @Column(name="status")
     private Status status;
 
-    public Patient(Name name, int age, String photo, Illness illness, int health, Status status) {
-        super(name, age, photo);
+    public Patient(String name, int age, Illness illness, int health, Status status) {
+        super(name, age);
         this.illness = illness;
         this.health = health;
         this.status = status;

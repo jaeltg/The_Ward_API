@@ -34,8 +34,6 @@ public class PatientController {
 
     @PostMapping("/patients")
     public ResponseEntity<Patient> createPatient(@RequestBody Patient patient){
-        Game game = new Game();
-        patient = game.createRandomPatient("photo url", (ArrayList<Illness>) illnessRepository.findAll() );
         patientRepository.save(patient);
         return new ResponseEntity<>(patient, HttpStatus.CREATED);
     }
@@ -45,7 +43,6 @@ public class PatientController {
         Patient patientToUpdate = patientRepository.findById(id).get();
         patientToUpdate.setName(patient.getName());
         patientToUpdate.setAge(patient.getAge());
-        patientToUpdate.setPhoto(patient.getPhoto());
         patientToUpdate.setHealth(patient.getHealth());
         patientToUpdate.setIllness(patient.getIllness());
         patientToUpdate.setStatus(patient.getStatus());

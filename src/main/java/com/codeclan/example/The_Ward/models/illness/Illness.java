@@ -21,10 +21,10 @@ public class Illness {
     private String name;
 
     @Column(name="symptoms", length = 1000)
-    private ArrayList<Symptom> allSymptoms;
+    private ArrayList<String> allSymptoms;
 
     @Column(name="visible_symptoms")
-    private ArrayList<Symptom> visibleSymptoms;
+    private ArrayList<String> visibleSymptoms;
 
     @ManyToOne
     @JoinColumn(name = "specialist_id", nullable = false)
@@ -71,29 +71,29 @@ public class Illness {
         this.name = name;
     }
 
-    public ArrayList<Symptom> getAllSymptoms() {
+    public ArrayList<String> getAllSymptoms() {
         return allSymptoms;
     }
 
-    public void setAllSymptoms(ArrayList<Symptom> allSymptoms) {
+    public void setAllSymptoms(ArrayList<String> allSymptoms) {
         this.allSymptoms = allSymptoms;
     }
 
-    public ArrayList<Symptom> getVisibleSymptoms() {
+    public ArrayList<String> getVisibleSymptoms() {
         return visibleSymptoms;
     }
 
-    public void setVisibleSymptoms(ArrayList<Symptom> visibleSymptoms) {
+    public void setVisibleSymptoms(ArrayList<String> visibleSymptoms) {
         this.visibleSymptoms = visibleSymptoms;
     }
 
-    public void addSymptom(Symptom symptom) {
+    public void addSymptom(String symptom) {
         this.allSymptoms.add(symptom);
     }
 
     public void addAllSymptoms() {
         for (Symptom currentSymptom : Symptom.values()) {
-            this.allSymptoms.add(currentSymptom);
+            this.allSymptoms.add(currentSymptom.getName());
         }
     }
 

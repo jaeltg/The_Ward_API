@@ -1,43 +1,50 @@
 package com.codeclan.example.The_Ward.models.people;
 
 public enum Name {
-    JOHN("M"),
-    JACK("M"),
-    PETER("M"),
-    PAUL("M"),
-    MARGARETH("F"),
-    RINGO("M"),
-    JONATHAN("M"),
-    BORIS("M"),
-    KAREN("F"),
-    JANET("F"),
-    BRIDGET("F"),
-    MARY("F"),
-    LOUISE("F"),
-    NEIL("M"),
-    BRAD("M"),
-    GEORGE("M"),
-    FRANK("M"),
-    ANNA("F"),
-    MHAIRIE("F"),
-    KRZYSTOF("M"),
-    ABDUL("M"),
-    WEI("F"),
-    PABLO ("M"),
-    MOHAMED ("M"),
-    GILL("F"),
-    KATE("F"),
-    JUANA("F"),
-    FRANCESCA("F"),
-    MALCOLM("M"),
-    ZSOLT("M"),
-    JON ("M"),
-    HARRISON ("M");
+    JOHN("John"),
+    JACK("Jack"),
+    PETER("Peter"),
+    PAUL("Paul"),
+    MARGARET("Margaret"),
+    RINGO("Ringo"),
+    JONATHAN("Jonathan"),
+    BORIS("Boris"),
+    KAREN("Karen"),
+    JANET("Janet"),
+    BRIDGET("Bridget"),
+    MARY("Mary"),
+    LOUISE("Louise"),
+    NEIL("Neil"),
+    BRAD("Brad"),
+    GEORGE("George"),
+    FRANK("Frank"),
+    ANNA("Anna"),
+    MHAIRIE("Mhairie"),
+    KRZYSTOF("Krzystof"),
+    ABDUL("Abdul"),
+    WEI("Wei"),
+    PABLO ("Pablo"),
+    MOHAMED ("Mohamed"),
+    GILL("Gill"),
+    KATE("Kate"),
+    JUANA("Juana"),
+    FRANCESCA("Francesca"),
+    MALCOLM("Malcolm"),
+    ZSOLT("Zsolt"),
+    JON ("Jon");
 
-    private String sex;
+    private String name;
 
-    Name (String sex){
-        this.sex = sex;
+    Name (String name){
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
 

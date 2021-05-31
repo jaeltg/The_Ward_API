@@ -38,7 +38,6 @@ public class SpecialistController {
         Specialist specialistToUpdate = specialistRepository.findById(id).get();
         specialistToUpdate.setName(specialist.getName());
         specialistToUpdate.setAge(specialist.getAge());
-        specialistToUpdate.setPhoto(specialist.getPhoto());
         specialistToUpdate.setSpeciality(specialist.getSpeciality());
         specialistRepository.save(specialistToUpdate);
         return new ResponseEntity<>(specialistToUpdate, HttpStatus.OK);

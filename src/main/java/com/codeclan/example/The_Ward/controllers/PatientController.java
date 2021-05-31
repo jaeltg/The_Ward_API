@@ -1,12 +1,16 @@
 package com.codeclan.example.The_Ward.controllers;
 
+import com.codeclan.example.The_Ward.models.Game;
+import com.codeclan.example.The_Ward.models.illness.Illness;
 import com.codeclan.example.The_Ward.models.people.Patient;
+import com.codeclan.example.The_Ward.repositories.IllnessRepository;
 import com.codeclan.example.The_Ward.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -14,6 +18,9 @@ public class PatientController {
 
     @Autowired
     PatientRepository patientRepository;
+
+    @Autowired
+    IllnessRepository illnessRepository;
 
     @GetMapping(value = "/patients")
     public ResponseEntity<List<Patient>> getAllPatients(){
@@ -27,6 +34,8 @@ public class PatientController {
 
     @PostMapping("/patients")
     public ResponseEntity<Patient> createPatient(@RequestBody Patient patient){
+        Game game = new Game();
+        patient = game.createRandomPatient("photo url", (ArrayList<Illness>) illnessRepository.findAll() );
         patientRepository.save(patient);
         return new ResponseEntity<>(patient, HttpStatus.CREATED);
     }

@@ -302,6 +302,7 @@ public class DataLoader implements ApplicationRunner {
         Patient patient3 = game.createRandomPatient("photo url", illnessPool);
         patientRepository.save(patient3);
 
+
 //      WAITING ROOM
 
         WaitingRoom waitingRoom1 = new WaitingRoom(8);

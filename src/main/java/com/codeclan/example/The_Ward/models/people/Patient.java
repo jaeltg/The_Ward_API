@@ -20,11 +20,17 @@ public class Patient extends Person {
     @Column(name="status")
     private Status status;
 
-    public Patient(String name, int age, Illness illness, int health, Status status) {
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name = "specialist_id")
+    @JsonIgnoreProperties({"patients"})
+    private Specialist treatingSpecialist;
+
+    public Patient(String name, int age, Illness illness, int health, Status status, Specialist treatingSpecialist) {
         super(name, age);
         this.illness = illness;
         this.health = health;
         this.status = status;
+        this.treatingSpecialist = treatingSpecialist;
     }
 
     public Patient() {
@@ -55,5 +61,11 @@ public class Patient extends Person {
         this.status = status;
     }
 
+    public Specialist getTreatingSpecialist() {
+        return treatingSpecialist;
+    }
 
+    public void setTreatingSpecialist(Specialist treatingSpecialist) {
+        this.treatingSpecialist = treatingSpecialist;
+    }
 }

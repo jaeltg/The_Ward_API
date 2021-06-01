@@ -36,7 +36,6 @@ public class IllnessController {
         Illness illnessToUpdate = illnessRepository.findById(id).get();
         illnessToUpdate.setName(illness.getName());
         illnessToUpdate.setAllSymptoms(illness.getAllSymptoms());
-        illnessToUpdate.setVisibleSymptoms(illness.getVisibleSymptoms());
         illnessToUpdate.setSpecialist(illness.getSpecialist());
         illnessRepository.save(illnessToUpdate);
         return new ResponseEntity<>(illnessToUpdate, HttpStatus.OK);

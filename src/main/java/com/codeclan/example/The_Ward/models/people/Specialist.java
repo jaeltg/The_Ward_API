@@ -20,6 +20,10 @@ public class Specialist extends Person{
     @OneToMany(mappedBy = "specialist")
     private List<Illness> illnessesToTreat;
 
+    @JsonIgnoreProperties({"specialist"})
+    @OneToMany(mappedBy = "treatingSpecialist")
+    private List<Patient> patientsToTreat;
+
     public Specialist(String name, int age, String speciality) {
         super(name, age);
         this.speciality = speciality;
@@ -43,4 +47,11 @@ public class Specialist extends Person{
         this.illnessesToTreat = illnesses;
     }
 
+    public List<Patient> getPatientsToTreat() {
+        return patientsToTreat;
     }
+
+    public void setPatientsToTreat(List<Patient> patientsToTreat) {
+        this.patientsToTreat = patientsToTreat;
+    }
+}

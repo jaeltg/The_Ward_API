@@ -23,9 +23,6 @@ public class Illness {
     @Column(name="symptoms", length = 1000)
     private ArrayList<String> allSymptoms;
 
-    @Column(name="visible_symptoms")
-    private ArrayList<String> visibleSymptoms;
-
     @ManyToOne
     @JoinColumn(name = "specialist_id", nullable = false)
     @JsonIgnoreProperties({"illnesses"})
@@ -38,7 +35,6 @@ public class Illness {
     public Illness(String name, Specialist specialist) {
         this.name = name;
         this.allSymptoms = new ArrayList<>();
-        this.visibleSymptoms = new ArrayList<>();
         this.specialist = specialist;
         this.patientsWithIllness = new ArrayList<>();
     }
@@ -77,14 +73,6 @@ public class Illness {
 
     public void setAllSymptoms(ArrayList<String> allSymptoms) {
         this.allSymptoms = allSymptoms;
-    }
-
-    public ArrayList<String> getVisibleSymptoms() {
-        return visibleSymptoms;
-    }
-
-    public void setVisibleSymptoms(ArrayList<String> visibleSymptoms) {
-        this.visibleSymptoms = visibleSymptoms;
     }
 
     public void addSymptom(String symptom) {

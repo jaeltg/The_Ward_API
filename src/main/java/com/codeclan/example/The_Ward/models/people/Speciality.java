@@ -7,7 +7,7 @@ public enum Speciality {
     NEUROLOGIST ("Neurologist"),
     CARDIOLOGIST ("Cardiologist"),
     PSYCHOLOGIST ("Psychologist"),
-    UROLOGIST_GYNECOLOGIST("Urologist/Gynecologist");
+    UROLOGIST_GYNECOLOGIST("Urologynecologist");
 
     private String name;
 
